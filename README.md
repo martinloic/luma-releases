@@ -67,6 +67,24 @@ authentication already set up on your Mac (SSH key or `gh auth login`).
 
 The interface is available in English and French.
 
+## Limitations
+
+Luma is young, and some things are not there (yet):
+
+- **One vault at a time**: no list of vaults or switching between them.
+- **Calendar**: month view only, no week or day view. No events with times, no Google,
+  Outlook or iCloud calendars, no drag and drop of tasks between days.
+- **Tasks**: no recurring tasks, no start or scheduled dates, no Kanban view.
+- **Focus**: 15, 25 or 50 minutes only, no long breaks or sounds. Only the total time per
+  task is kept: no session history or reports.
+- **Links**: embedded notes (`![[note]]`) and block links are kept in the file but not
+  displayed. Standard Markdown links to notes are not followed. No graph view.
+- **Renaming outside Luma**: renaming or moving notes in Finder or through Git does not
+  update the `[[links]]` pointing to them. Rename and move notes in Luma.
+- **GitHub sync**: Git must be installed on your Mac, and only GitHub repositories can be
+  cloned. No version history or restore from Luma (Git keeps it). No sync on quit.
+- **Languages**: English and French only.
+
 ## First launch on macOS
 
 Luma is not signed with an Apple Developer certificate yet, so macOS blocks the first
