@@ -20,8 +20,8 @@ Get the latest version from the [Releases](https://github.com/martinloic/luma-re
 
 Your notes are Markdown files in a folder you choose (a vault), browsed as a tree. The
 editor saves as you type and supports task lists, tables and `[[links]]` between notes,
-with backlinks. The files stay readable in any other editor, and an existing Obsidian
-vault can be opened as is.
+with backlinks. A handle next to each line moves it elsewhere in the note. The files stay
+readable in any other editor, and an existing Obsidian vault can be opened as is.
 
 ### Projects and tasks
 
@@ -50,6 +50,14 @@ spent is added to the task line itself (`⏱ 1h15m`).
 
 ![The focus view during a session](screenshots/focus.png)
 
+### Focus history
+
+Every focus session is kept in the vault. The History view shows, for a day, a week or a
+month, the focus time per project, the tasks done and the sessions of each day. A click on
+a session or a task opens its note at the task.
+
+![The history of a week, with the time per project, the tasks done and the sessions](screenshots/history.png)
+
 ### Search and shortcuts
 
 `⌘K` searches the names and the contents of the notes, and runs actions such as a new
@@ -60,8 +68,9 @@ task or a new project. Keyboard shortcuts cover the frequent actions.
 ### GitHub sync
 
 The vault can be synchronized both ways with a GitHub repository, through the Git of your
-Mac. Conflicts never lose anything: both versions are kept. It requires Git and a GitHub
-authentication already set up on your Mac (SSH key or `gh auth login`).
+Mac. Each sync commit lists the files it changed. Conflicts never lose anything: both
+versions are kept. It requires Git and a GitHub authentication already set up on your Mac
+(SSH key or `gh auth login`).
 
 ### English and French
 
@@ -75,8 +84,9 @@ Luma is young, and some things are not there (yet):
 - **Calendar**: month view only, no week or day view. No events with times, no Google,
   Outlook or iCloud calendars, no drag and drop of tasks between days.
 - **Tasks**: no recurring tasks, no start or scheduled dates, no Kanban view.
-- **Focus**: 15, 25 or 50 minutes only, no long breaks or sounds. Only the total time per
-  task is kept: no session history or reports.
+- **Focus**: 15, 25 or 50 minutes only, no long breaks, a single end chime. Sessions
+  cannot be edited or entered by hand, and the history has no charts or export. The time
+  spent before version 0.2.0 is not in the history.
 - **Links**: embedded notes (`![[note]]`) and block links are kept in the file but not
   displayed. Standard Markdown links to notes are not followed. No graph view.
 - **Renaming outside Luma**: renaming or moving notes in Finder or through Git does not
