@@ -97,14 +97,29 @@ Luma is young, and some things are not there (yet):
 
 ## First launch on macOS
 
-Luma is not signed with an Apple Developer certificate yet, so macOS blocks the first
-launch:
+Open the DMG and drag Luma into your Applications folder.
 
-1. Open the DMG and drag Luma into Applications.
-2. Open Luma: macOS says it cannot verify the app. Close the message.
-3. Open System Settings > Privacy & Security, scroll down, and click **Open Anyway** next
+> [!IMPORTANT]
+> Luma is not signed with an Apple Developer certificate yet, so macOS says it cannot verify
+> the app on its first launch. This is expected: allow it once, with one of the methods
+> below. The next launches open normally.
+
+### Recommended: Terminal
+
+The quickest way, one command:
+
+```bash
+xattr -dr com.apple.quarantine /Applications/Luma.app
+```
+
+Then open Luma normally.
+
+### Or: System Settings
+
+1. Open Luma: macOS says it cannot verify the app. Close the message.
+2. Open System Settings > Privacy & Security, scroll down, and click **Open Anyway** next
    to the message about Luma.
-4. Confirm. The next launches open normally.
+3. Confirm.
 
 ## License
 
