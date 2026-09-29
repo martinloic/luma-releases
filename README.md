@@ -5,7 +5,7 @@
 Luma is a desktop app for notes, tasks and calendar, stored as plain Markdown files in a
 folder of your choice, with optional sync to a GitHub repository.
 
-This repository only hosts the downloads. The source code is not public.
+This repository only hosts the releases. The source code is not public.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="screenshots/notes-dark.png" />
