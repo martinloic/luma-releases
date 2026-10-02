@@ -89,8 +89,9 @@ task or a new project. Keyboard shortcuts cover the frequent actions.
 
 The vault can be synchronized both ways with a GitHub repository, through the Git of your
 Mac. Each sync commit lists the files it changed. Conflicts never lose anything: both
-versions are kept. It requires Git and a GitHub authentication already set up on your Mac
-(SSH key or `gh auth login`).
+versions are kept. Quitting Luma with changes not on GitHub yet offers to sync them first.
+It requires Git and a GitHub authentication already set up on your Mac (SSH key or
+`gh auth login`).
 
 ### Several vaults
 
@@ -120,7 +121,7 @@ Luma is young, and some things are not there (yet):
 - **Renaming outside Luma**: renaming or moving notes in Finder or through Git does not
   update the `[[links]]` pointing to them. Rename and move notes in Luma.
 - **GitHub sync**: Git must be installed on your Mac, and only GitHub repositories can be
-  cloned. No version history or restore from Luma (Git keeps it). No sync on quit.
+  cloned. No version history or restore from Luma (Git keeps it).
 - **Languages**: English and French only.
 
 ## First launch on macOS
