@@ -9,7 +9,7 @@ This repository only hosts the releases. The source code is not public.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="screenshots/notes-dark.png" />
-  <img src="screenshots/notes.png" alt="A project note in Luma, with links, tasks, tags, priorities, due dates and time spent" />
+  <img src="screenshots/notes.png" alt="A client project note in Luma, with links, tasks, hours, tags, priorities, due dates and time spent" />
 </picture>
 
 ## Download
@@ -32,9 +32,15 @@ readable in any other editor, and an existing Obsidian vault can be opened as is
 ### Projects and tasks
 
 A project is a folder, and a task is a Markdown checkbox line in any note, with an optional
-priority and due date ([Obsidian Tasks](https://publish.obsidian.md/tasks/) format). The
-task view gathers the tasks of the whole vault: overdue, today, later and undated. Tasks
-can carry `#tags`, shown in color and used to filter the view.
+priority, due date and hours ([Obsidian Tasks](https://publish.obsidian.md/tasks/) format).
+Tasks can repeat (every day, week, month or year): checking one adds the next occurrence.
+The task view gathers the tasks of the whole vault: overdue, today, later and undated.
+Tasks can carry `#tags`, shown in color and used to filter the views.
+
+Projects can be grouped by client (`Clients/<client>/<project>/`), with a client filter and
+the focus time per client. A note, a project or a client can be archived from the tree: it
+moves to an `Archive` folder with the path it had, leaves the work views, stays in the
+history, and can be restored.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="screenshots/tasks-dark.png" />
@@ -44,51 +50,40 @@ can carry `#tags`, shown in color and used to filter the view.
 The same tasks can be sorted in an Eisenhower matrix, by importance (priority) and
 urgency (due date).
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="screenshots/matrix-dark.png" />
-  <img src="screenshots/matrix.png" alt="The Eisenhower matrix" />
-</picture>
-
 ### Calendar and daily notes
 
-A month view shows the tasks on their due date. A click on a day opens its daily note,
-or creates it.
+Month, week and day views show the tasks on their due date. The week and the day place the
+tasks that have hours on an hour grid, with a line for the current time. Add a task on a
+day or a slot, drag it to another day or hour, resize it, or drop it on the All day band or
+the No date list to remove its hours or its date, with undo. The weekend can be hidden. A
+click on a day opens its daily note, or creates it.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="screenshots/calendar-dark.png" />
-  <img src="screenshots/calendar.png" alt="The month calendar with tasks and daily notes" />
+  <img src="screenshots/calendar.png" alt="The week calendar, with the tasks of each day and the tasks with hours on an hour grid" />
 </picture>
 
 ### Focus
 
-A Pomodoro timer of 15, 25 or 50 minutes, on a task or on nothing in particular. The time
-spent is added to the task line itself (`⏱ 1h15m`).
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="screenshots/focus-dark.png" />
-  <img src="screenshots/focus.png" alt="The focus view during a session" />
-</picture>
+A Pomodoro timer of 15, 25 or 50 minutes, or with no end, on a task or on nothing in
+particular. The time spent is added to the task line itself (`⏱ 1h15m`).
 
 ### Focus history
 
 Every focus session is kept in the vault. The History view shows, for a day, a week or a
-month, the focus time per project and per tag, the tasks done and the sessions of each day. A click on
-a session or a task opens its note at the task.
+month, the focus time per client, per project and per tag, the tasks done and the sessions of
+each day, with the tag, client and project filters. A click on a session or a task opens its
+note at the task.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="screenshots/history-dark.png" />
-  <img src="screenshots/history.png" alt="The history of a week, with the time per project, the tasks done and the sessions" />
+  <img src="screenshots/history.png" alt="The history of a week, with the time per client, project and tag, and the tasks done" />
 </picture>
 
 ### Search and shortcuts
 
 `⌘K` searches the names and the contents of the notes, and runs actions such as a new
 task or a new project. Keyboard shortcuts cover the frequent actions.
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="screenshots/search-dark.png" />
-  <img src="screenshots/search.png" alt="The search palette" />
-</picture>
 
 ### GitHub sync
 
@@ -113,11 +108,11 @@ Luma is young, and some things are not there (yet):
 
 - **One vault open at a time**: switching vaults is quick, but two vaults cannot be open
   side by side, and only the open vault is synchronized.
-- **Calendar**: month view only, no week or day view. No events with times, no Google,
-  Outlook or iCloud calendars, no drag and drop of tasks between days.
-- **Tasks**: no recurring tasks, no start or scheduled dates, no Kanban view. Tags filter
-  the task view only, not the calendar, and there is no list of the tags of the vault.
-- **Focus**: 15, 25 or 50 minutes only, no long breaks, a single end chime. Sessions
+- **Calendar**: tasks only, no events, no Google, Outlook or iCloud calendars, no daily
+  note templates. Future occurrences of recurring tasks are not shown.
+- **Tasks**: repeats of a plain interval only, no start or scheduled dates, no Kanban view,
+  and no list of the tags of the vault.
+- **Focus**: 15, 25 or 50 minutes or no end, no long breaks, a single end chime. Sessions
   cannot be edited or entered by hand, and the history has no charts or export. The time
   spent before version 0.2.0 is not in the history.
 - **Links**: embedded notes (`![[note]]`) and block links are kept in the file but not
@@ -153,6 +148,11 @@ Then open Luma normally.
 2. Open System Settings > Privacy & Security, scroll down, and click **Open Anyway** next
    to the message about Luma.
 3. Confirm.
+
+### Try it on a demo vault
+
+On the vault setup screen, **Try the demo vault** copies a small vault of notes, projects,
+tasks and focus sessions to your Documents folder, with its dates moved to the current day.
 
 ## License
 
