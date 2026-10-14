@@ -9,7 +9,7 @@ This repository only hosts the releases. The source code is not public.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="screenshots/notes-dark.png" />
-  <img src="screenshots/notes.png" alt="A client project note in Luma, with links, tasks, hours, tags, priorities, due dates and time spent" />
+  <img src="screenshots/notes.png" alt="A client project note in Luma, with its properties, links, a sorted task list with hours, tags, a mention, priorities, due dates and time spent" />
 </picture>
 
 ## Download
@@ -29,13 +29,36 @@ with backlinks. A handle next to each line moves it elsewhere in the note. A but
 `⌘⇧M`) switches a note to its Markdown source, saved exactly as typed. The files stay
 readable in any other editor, and an existing Obsidian vault can be opened as is.
 
+The properties of a note (its YAML frontmatter) show under its title: click one to edit it,
+or add one as `key: value`. `#tags` written anywhere in a note, or in its `tags` property,
+and `@mentions` of people are colored, suggested as you type them, and lead to their notes:
+type `#` or `@` in the search, or `⌘`-click one.
+
+### Galaxy
+
+The Galaxy view draws every note of the vault, grouped by client, project and folder, with
+the `[[links]]` between them. Hover a note to light its links and their direction, click it
+for its panel (with its properties), double-click it to open it. From a note, Show in the
+galaxy flies to it.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="screenshots/galaxy-dark.png" />
+  <img src="screenshots/galaxy.png" alt="The Galaxy view, with the notes grouped by client, project and folder, and the links between them" />
+</picture>
+
 ### Projects and tasks
 
 A project is a folder, and a task is a Markdown checkbox line in any note, with an optional
 priority, due date and hours ([Obsidian Tasks](https://publish.obsidian.md/tasks/) format).
 Tasks can repeat (every day, week, month or year): checking one adds the next occurrence.
 The task view gathers the tasks of the whole vault: overdue, today, later and undated.
-Tasks can carry `#tags`, shown in color and used to filter the views.
+Tasks can carry `#tags`, shown in color and used to filter the views, and renamed or merged
+from the settings.
+
+In a note, Sort tasks (in the `/` menu, or `⌘⌥S`) puts the open tasks of a list first, by
+due date, hours and priority, then the done ones; subtasks move with their task. Turn on
+Sort tasks automatically in the note menu, and the lists of that note stay sorted each time
+you check a task or change its date.
 
 Projects can be grouped by client (`Clients/<client>/<project>/`), with a client filter and
 the focus time per client. A note, a project or a client can be archived from the tree: it
@@ -82,16 +105,25 @@ note at the task.
 
 ### Search and shortcuts
 
-`⌘K` searches the names and the contents of the notes, and runs actions such as a new
-task or a new project. Keyboard shortcuts cover the frequent actions.
+`⌘K` searches the names and the contents of the notes, lists the notes of a `#tag` or of an
+`@person`, and runs actions such as a new task or a new project. Keyboard shortcuts cover
+the frequent actions.
 
 ### GitHub sync
 
 The vault can be synchronized both ways with a GitHub repository, through the Git of your
-Mac. Each sync commit lists the files it changed. Conflicts never lose anything: both
+Mac. Each sync commit lists the files it changed, and is signed Luma: the syncs do not fill
+your GitHub contribution graph. Conflicts never lose anything: both
 versions are kept. Quitting Luma with changes not on GitHub yet offers to sync them first.
 It requires Git and a GitHub authentication already set up on your Mac (SSH key or
 `gh auth login`).
+
+### Assistant
+
+Ask questions about your notes and tasks to a local model run by
+[Ollama](https://ollama.com) on your Mac: Luma chooses the notes and computes the tasks
+(late, today, upcoming) it gives the model, and shows the notes used under each answer.
+Off by default (Settings > Assistant). Nothing leaves your computer.
 
 ### Several vaults
 
@@ -111,13 +143,14 @@ Luma is young, and some things are not there (yet):
   side by side, and only the open vault is synchronized.
 - **Calendar**: tasks only, no events, no Google, Outlook or iCloud calendars, no daily
   note templates. Future occurrences of recurring tasks are not shown.
-- **Tasks**: repeats of a plain interval only, no start or scheduled dates, no Kanban view,
-  and no list of the tags of the vault.
+- **Tasks**: repeats of a plain interval only, no start or scheduled dates, no Kanban view.
+- **Tags and people**: the tags written in the notes and the people mentioned cannot be
+  renamed from Luma yet (the tags of tasks can).
 - **Focus**: 15, 25 or 50 minutes or no end, no long breaks, a single end chime. Sessions
   cannot be edited or entered by hand, and the history has no charts or export. The time
   spent before version 0.2.0 is not in the history.
 - **Links**: embedded notes (`![[note]]`) and block links are kept in the file but not
-  displayed. Standard Markdown links to notes are not followed. No graph view.
+  displayed. Standard Markdown links to notes are not followed.
 - **Renaming outside Luma**: renaming or moving notes in Finder or through Git does not
   update the `[[links]]` pointing to them. Rename and move notes in Luma.
 - **GitHub sync**: Git must be installed on your Mac, and only GitHub repositories can be
